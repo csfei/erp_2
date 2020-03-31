@@ -29,4 +29,29 @@ public class SystemController {
 
         return "system/index/index";
     }
+
+
+    /**
+     * 跳转到桌面
+     * @return
+     */
+    @RequestMapping("/toDeskManager")
+    public String toDeskManager(){
+
+        return "system/index/deskManager";
+    }
+
+
+
+    /**
+     * 跳转到日志管理界面
+     * @return
+     */
+    @RequestMapping("/toLoginfoManager")
+    public String toLoginfoManager() {
+
+        System.out.println("跳转到日志管理界面......................");
+        return "system/loginfo/loginfoManager";
+    }
+
 }

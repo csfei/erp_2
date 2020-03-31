@@ -48,7 +48,7 @@ public class codeAutoGenerator {
        // pc.setModuleName("generator_01");
         pc.setParent("com.cuisf");
         pc.setController("controller");
-        pc.setEntity("entity");
+       // pc.setEntity("entity");
         pc.setMapper("mapper");
         pc.setService("service");
 
@@ -58,8 +58,8 @@ public class codeAutoGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);//映射到实体类的策略  驼峰
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setEntityLombokModel(true);//自动添加lombok的注解
-        strategy.setRestControllerStyle(true);
+        //strategy.setEntityLombokModel(true);//自动添加lombok的注解
+        //strategy.setRestControllerStyle(true);
         strategy.setInclude("\\w*");
         //自动填充 【日期【插入，修改】】
         //TableFill gmtCreate = new TableFill("useraddtime", FieldFill.INSERT);
