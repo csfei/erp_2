@@ -50,8 +50,17 @@ public class SystemController {
     @RequestMapping("/toLoginfoManager")
     public String toLoginfoManager() {
 
-        System.out.println("跳转到日志管理界面......................");
         return "system/loginfo/loginfoManager";
+    }
+
+    /**
+     * 跳转到日志管理界面
+     * @return
+     */
+    @RequestMapping("/toNoticeManager")
+    public String toNoticeManager() {
+
+        return "system/notice/noticeManager";
     }
 
 }
