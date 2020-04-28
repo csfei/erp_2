@@ -90,5 +90,59 @@ public class SystemController {
 
         return "system/dept/deptRight";
     }
+    /**
+     * 跳转到c菜单管理界面
+     * @return
+     */
+    @RequestMapping("/toMenuManager")
+    public String toMenuManager() {
+
+        return "system/menu/menuManager";
+    }
+    /**
+     * 跳转到菜单管理界面--left
+     * @return
+     */
+    @RequestMapping("/toMenuLeft")
+    public String toMenuLeft() {
+
+        return "system/menu/menuLeft";
+    }
+    /**
+     * 跳转到菜单管理界面 --right
+     * @return
+     */
+    @RequestMapping("/toMenuRight")
+    public String toMenuRight() {
+
+        return "system/menu/menuRight";
+    }
+    /**
+     * 跳转到权限管理界面
+     * @return
+     */
+    @RequestMapping("/toPermissionManager")
+    public String toPermissionManager() {
+
+        return "system/permission/permissionManager";
+    }
+    /**
+     * 跳转到权限管理界面--left
+     * @return
+     */
+    @RequestMapping("/toPermissionLeft")
+    public String toPermissionLeft() {
+
+        return "system/permission/permissionLeft";
+    }
+    /**
+     * 跳转到权限菜单管理界面 --right
+     * @return
+     */
+    @RequestMapping("/toPermissionRight")
+    public String toPermissionRight() {
+
+        return "system/permission/permissionRight";
+    }
 
 }
