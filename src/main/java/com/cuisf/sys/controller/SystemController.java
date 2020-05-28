@@ -145,4 +145,24 @@ public class SystemController {
         return "system/permission/permissionRight";
     }
 
+    /**
+     * 跳转到角色管理界面
+     * @return
+     */
+    @RequestMapping("/toRoleManager")
+    public String toRoleManager() {
+
+        return "system/role/roleManager";
+    }
+
+    /**
+     * 跳转到用户管理界面 --right
+     * @return
+     */
+    @RequestMapping("/toUserManager")
+    public String toUserManager() {
+
+        return "system/user/userManager";
+    }
+
 }

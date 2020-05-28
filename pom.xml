@@ -21,6 +21,7 @@
 		<druid.version>1.1.18</druid.version>
 		<log4j.version>1.2.17</log4j.version>
 		<hutool.version>4.6.6</hutool.version>
+		<pinyin4j.version>2.5.1</pinyin4j.version>
 	</properties>
 
 	<dependencies>
@@ -127,7 +128,12 @@
 			<artifactId>velocity-engine-core</artifactId>
 			<version>2.2</version>
 		</dependency>
-
+		<!-- pinyin4j -->
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>${pinyin4j.version}</version>
+		</dependency>
 
 
 	</dependencies>

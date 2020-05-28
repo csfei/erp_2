@@ -7,16 +7,14 @@ import com.cuisf.sys.common.*;
 import com.cuisf.sys.entity.Permission;
 import com.cuisf.sys.entity.User;
 import com.cuisf.sys.service.PermissionService;
+import com.cuisf.sys.service.RoleService;
 import com.cuisf.sys.vo.PermissionVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Administrator on 2020-03-25.
@@ -27,6 +25,9 @@ public class MenuController {
 
     @Autowired
     private PermissionService permissionService;
+
+    @Autowired
+    private RoleService roleService;
 
     @RequestMapping("/loadIndexLeftMenuJson")
     public DataGridView loadIndexLeftMenuJson(PermissionVo permissionVo){
@@ -39,7 +40,25 @@ public class MenuController {
         if (user.getType() == Constast.USER_TYPE_SUPER){
             list = permissionService.list(queryWrapper);
         }else {
-            //TODO  根据用户ID+角色+权限去查询
+            //根据用户ID+角色+权限去查询
+            Integer userId=user.getId();
+            //根据用户ID查询角色
+            List<Integer> currentUserRoleIds = roleService.queryUserRoleIdsByUid(userId);
+            //根据角色ID取到权限和菜单ID
+            Set<Integer> pids=new HashSet<>();
+            for (Integer rid : currentUserRoleIds) {
+                List<Integer> permissionIds = roleService.queryRolePermissionIdsByRid(rid);
+                pids.addAll(permissionIds);
+            }
+
+            //根据角色ID查询权限
+            if(pids.size()>0) {
+                queryWrapper.in("id", pids);
+                list=permissionService.list(queryWrapper);
+            }else {
+                list =new ArrayList<>();
+            }
+
         }
 
         //构造层级关系
