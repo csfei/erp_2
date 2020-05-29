@@ -40,6 +40,9 @@ public interface  Constast{
         public static final Integer OPEN_TURE=1;
         public static final Integer OPEN_FALSE=0;
 
-
+        /**
+         * 商品默认图片
+         */
+        public static final String IMAGES_DEFAULTGOODSIMG_PNG = "images/defaultgoodsimg.png";
 
 }

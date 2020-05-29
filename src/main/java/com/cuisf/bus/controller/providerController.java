@@ -9,6 +9,7 @@ import com.cuisf.bus.service.CustomerService;
 import com.cuisf.bus.service.ProviderService;
 import com.cuisf.bus.vo.CustomerVo;
 import com.cuisf.bus.vo.ProviderVo;
+import com.cuisf.sys.common.Constast;
 import com.cuisf.sys.common.DataGridView;
 import com.cuisf.sys.common.ResultObj;
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by cuisf on 2020-05-25.
@@ -113,5 +115,16 @@ public class providerController {
             e.printStackTrace();
             return ResultObj.DISPATCH_ERROR;
         }
+    }
+
+    /**
+     * 加载所有可用的供应商
+     */
+    @RequestMapping("loadAllProviderForSelect")
+    public DataGridView loadAllProviderForSelect() {
+        QueryWrapper<Provider> queryWrapper=new QueryWrapper<>();
+        queryWrapper.eq("available", Constast.AVALIABLE_TRUE);
+        List<Provider> list = this.providerService.list(queryWrapper);
+        return new DataGridView(list);
     }
 }
